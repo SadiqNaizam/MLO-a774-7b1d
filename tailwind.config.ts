@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 export default {
 	darkMode: ["class"],
@@ -52,6 +53,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        /* Custom PRD colors */
+        surface: 'hsl(var(--surface))',
+        primaryText: 'hsl(var(--primary-text))',
+        secondaryText: 'hsl(var(--secondary-text))',
+        accentSecondary: {
+          DEFAULT: 'hsl(var(--accent-secondary))',
+          foreground: 'hsl(var(--accent-secondary-foreground))'
+        },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))'
+        },
+        /* Sidebar specific colors */
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -64,10 +78,13 @@ export default {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', /* 0.375rem, maps to rounded-md */
+				md: 'calc(var(--radius) - 2px)', /* approx 0.25rem, maps to rounded */
+				sm: 'calc(var(--radius) - 4px)' /* approx 0.125rem, maps to rounded-sm */
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
